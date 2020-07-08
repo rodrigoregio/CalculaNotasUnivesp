@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">CalculaNotasUnivesp</string>
+    <string name="precisoDe">Quanto preciso tirar na prova?</string>
+    <string name="gabarito">Comparar gabarito e ver se passei</string>
+    <string name="sobre">Sobre o app e o desenvolvedor.</string>
+    <string name="semana3">Insira a nota da semana 3</string>
+    <string name="semana4">Insira a nota da semana 4</string>
+    <string name="semana5">Insira a nota da semana 5</string>
+    <string name="semana6">Insira a nota da semana 6</string>
+    <string name="calcularNota">Calcular Nota</string>
+    <string name="areaHint">O resultado aparecerá aqui!</string>
+    <string name="alt">Acertou quantas alternativas?</string>
+    <string name="media">Insira sua media das atividades semanais</string>
+    <string name="shareData">Compartilhar dados entre apps</string>
+    <string name="tvaboutapp">Aplicativo Calcula Notas Univesp\n\nAplicativo para calcular notas da
+        Univesp com (inicialmente três telas) abaixo descritas:\n\nTela1:\nA primeira tela serve
+        para calcular quantos pontos você precisa para passar naquela matéria com base nas suas
+        notas de atividades semanais. Nela você pode salvar arquivos txt (disponiveis somente para o
+        aplicativo) digitando o nome do arquivo onde está escrito "Insira o nome da matéria" e
+        clicando em salvar dados.\nTela 2:\nEsta tela serve para comparar se com seus acertos
+        nas questões alternativas é possível passar ou não. Ela pede a sua média semanal e a
+        quantidade de acertos nas alternativas.\nTela 3:\nTela onde você pode ler os arquivos salvos
+        na tela 1.\nTela 4:\nSeria esta tela que está lendo.
+        \n\nSobre o desenvolvedor:\nNome: Rodrigo Régio de Araújo\nAtualmente (13/05/2020) estou no
+        primeiro semestre da Univesp (polo Santana de Parnaíba), segue minhas redes sociais:</string>
+    <string name="btnGit">Acessar GitHub</string>
+    <string name="btnFace">Acessar Facebook</string>
+    <string name="btnLink">Acessar LinkedIn</string>
+    <string name="mat">Insira o nome da matéria.</string>
+    <string name="salvarMat">Salvar dados</string>
+    <string name="spText">Arquivos disponiveis</string>
+    <string name="btnGoFiles">Tela de arquivos do app</string>
+    <string name="btnDelFile">Apagar arquivo</string>
+    <string name="btnCarregaFile">Carregar arquivo</string>
+    <string name="fileContentHint">Conteudo do arquivo</string>
+</resources>
