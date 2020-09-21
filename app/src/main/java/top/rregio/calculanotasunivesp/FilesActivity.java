@@ -4,12 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,6 +29,7 @@ public class FilesActivity extends AppCompatActivity {
     private Button btnCarregarFile;
     private Button btnDel;
     private ArrayList<String> Arquivos = new ArrayList<>();
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,18 @@ public class FilesActivity extends AppCompatActivity {
         btnDel=findViewById(R.id.delBtn);
         Listar();
         //dispFiles.setText(Arquivos.toString());
+        //inicio AdMob
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        mAdView = findViewById(R.id.adViewBanner);
+        /*mAdView.setAdSize(AdSize.BANNER);
+        mAdView.setAdUnitId("ca-app-pub-3396081615784704/6115380505");*/
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        //fin AdMob
     }
     public void mensagem(String texto){
         Toast.makeText(getApplicationContext(),texto,Toast.LENGTH_LONG).show();

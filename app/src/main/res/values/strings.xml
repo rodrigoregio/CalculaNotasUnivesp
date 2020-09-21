@@ -33,4 +33,5 @@
     <string name="btnDelFile">Apagar arquivo</string>
     <string name="btnCarregaFile">Carregar arquivo</string>
     <string name="fileContentHint">Conteudo do arquivo</string>
+    <string name="FAN_PlaceID">751896055607240_751926552270857</string>
 </resources>
