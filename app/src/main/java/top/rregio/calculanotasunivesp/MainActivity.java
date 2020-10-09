@@ -3,7 +3,9 @@ package top.rregio.calculanotasunivesp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
@@ -15,6 +17,9 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.review.ReviewManagerFactory;
+import com.google.android.play.core.review.testing.FakeReviewManager;
+import com.google.android.play.core.tasks.OnCompleteListener;
+import com.google.android.play.core.tasks.OnFailureListener;
 import com.google.android.play.core.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,13 +49,6 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
     public void abrePrecisoDe(View view){
-        ReviewManager manager= ReviewManagerFactory.create(this);
-        Task<ReviewInfo> request = manager.requestReviewFlow();
-        request.addOnCompleteListener(task -> {
-            if(task.isSuccessful()){
-                ReviewInfo reviewInfo = task.getResult();
-            }
-        });
         Intent calcularNota = new Intent(this, PrecisoDeActivity.class);
         startActivity(calcularNota);
     }
@@ -65,5 +63,29 @@ public class MainActivity extends AppCompatActivity {
     public void abreSobre(View view){
         Intent sobreIntent = new Intent(this, SobreApp.class);
         startActivity(sobreIntent);
+    }
+    public void reviewAPPRequested(View view){
+        ReviewManager manager= ReviewManagerFactory.create(this);
+        //FakeReviewManager manager = new FakeReviewManager(this);
+        Task<ReviewInfo> request = manager.requestReviewFlow();
+        request.addOnCompleteListener(task -> {
+            if(task.isSuccessful()){
+                ReviewInfo reviewInfo = task.getResult();
+                manager.launchReviewFlow(MainActivity.this, reviewInfo).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(Exception e) {
+                        Toast.makeText(MainActivity.this, "Falha ao avaliar!", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(MainActivity.this, "Avaliação realizada com sucesso,\n Muito obrigado!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } else {
+                //"não foi"
+                Toast.makeText(this,"Review APP não mostrado!",Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

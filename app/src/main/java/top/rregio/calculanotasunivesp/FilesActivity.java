@@ -2,6 +2,7 @@ package top.rregio.calculanotasunivesp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -103,16 +104,21 @@ public class FilesActivity extends AppCompatActivity {
     public void Listar(){
         File diretorio = new File(obterDiretorio());
         File[] arquivos = diretorio.listFiles();
-        if(arquivos != null){
+        if(arquivos.length != 0){
             int tamanho = arquivos.length;
             for(int i=0;i<tamanho;i++){
                 File f = arquivos[i];
-                if(f.isFile()){
+                if(f.isFile() && !f.getName().startsWith("rList-")){
                     Arquivos.add(f.getName());
                 }
             }
             ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(this,android.R.layout.simple_dropdown_item_1line,Arquivos);
             fileList.setAdapter(arrayAdapter);
+        }
+        if(Arquivos.isEmpty()){
+            Intent inicio = new Intent(this,MainActivity.class);
+            startActivity(inicio);
+            Toast.makeText(this,"Você não tem arquivos.",Toast.LENGTH_LONG).show();
         }
     }
 }
