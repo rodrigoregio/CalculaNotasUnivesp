@@ -107,7 +107,8 @@
                 android:focusable="false"
                 android:gravity="start|top"
                 android:hint="@string/areaHint"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:onClick="copiaMedia" />
 
             <EditText
                 android:id="@+id/txtMat"
@@ -153,15 +154,5 @@
                 android:text="@string/shareData" />
         </LinearLayout>
     </ScrollView>
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-7864032411926869/8055853379"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

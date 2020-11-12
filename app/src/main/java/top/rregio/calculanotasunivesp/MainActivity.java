@@ -1,6 +1,7 @@
 package top.rregio.calculanotasunivesp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -63,6 +64,12 @@ public class MainActivity extends AppCompatActivity {
     public void abreSobre(View view){
         Intent sobreIntent = new Intent(this, SobreApp.class);
         startActivity(sobreIntent);
+    }
+    public void novidades(View view){
+        String url = "https://calculanotas.rregio.top";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
     public void reviewAPPRequested(View view){
         ReviewManager manager= ReviewManagerFactory.create(this);

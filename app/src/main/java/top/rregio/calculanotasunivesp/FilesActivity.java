@@ -49,12 +49,6 @@ public class FilesActivity extends AppCompatActivity {
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
-        mAdView = findViewById(R.id.adViewBanner);
-        /*mAdView.setAdSize(AdSize.BANNER);
-        mAdView.setAdUnitId("ca-app-pub-3396081615784704/6115380505");*/
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-        //fin AdMob
     }
     public void mensagem(String texto){
         Toast.makeText(getApplicationContext(),texto,Toast.LENGTH_LONG).show();

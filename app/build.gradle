@@ -8,8 +8,8 @@ android {
         applicationId "top.rregio.calculanotasunivesp"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 15
-        versionName "5.3.1"
+        versionCode 17
+        versionName "5.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

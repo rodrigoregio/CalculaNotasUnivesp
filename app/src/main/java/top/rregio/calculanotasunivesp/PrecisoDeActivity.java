@@ -1,5 +1,7 @@
 package top.rregio.calculanotasunivesp;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +32,7 @@ import java.io.IOException;
 public class PrecisoDeActivity extends AppCompatActivity{
     private AdView mAdView;
     private InterstitialAd myInter;
+    double mediaFinal=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,13 +42,8 @@ public class PrecisoDeActivity extends AppCompatActivity{
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
-        mAdView=findViewById(R.id.adView);
-        AdRequest adRequest=new AdRequest.Builder().build();
-        /*mAdView.setAdSize(AdSize.BANNER);
-        mAdView.setAdUnitId("ca-app-pub-7864032411926869/8055853379");*/
-        mAdView.loadAd(adRequest);
         myInter=new InterstitialAd(this);
-        myInter.setAdUnitId("ca-app-pub-7864032411926869/1490445022");
+        myInter.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         myInter.loadAd(new AdRequest.Builder().build());
 
         myInter.setAdListener(new AdListener(){
@@ -128,7 +126,13 @@ public class PrecisoDeActivity extends AppCompatActivity{
         }else{
             Log.d("TAG", "O instersticial ainda não carregou!");
         }
+        mediaFinal=media;
+    }
+    public void copiaMedia(View view){
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData cd = ClipData.newPlainText("mediaFinal",mediaFinal+"");
+        clipboard.setPrimaryClip(cd);
+        Toast.makeText(this,"Media "+ mediaFinal +" copiada para área de transferencia",Toast.LENGTH_LONG).show();
     }
 
 }
-//EAAKr2HFNb8gBAJq71yJaLOmgn2baZCXpL8QGjZCX7tX6BfwrJiazHFVbGfnhpX3mNzBizQS5OZBbrnPJZAZAlZBD90qSxwuaza2ZCEN4z19oJmwgR2fkKJkWba24p4bvRQzVUE287xrnKZBvAhbih2XqENnlJ1MpZAfcy1UAAjNprprR3HX0v1ZCVk

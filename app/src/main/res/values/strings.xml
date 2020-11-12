@@ -35,4 +35,7 @@
     <string name="fileContentHint">Conteudo do arquivo</string>
     <string name="FAN_PlaceID">751896055607240_751926552270857</string>
     <string name="appreview">Avalie o aplicativo, isto me ajuda!</string>
+    <string name="check_compara">Pegar nota de arquivo?</string>
+    <string name="compara_filename">Nome do arquivo</string>
+    <string name="novidades">Novidades no app</string>
 </resources>

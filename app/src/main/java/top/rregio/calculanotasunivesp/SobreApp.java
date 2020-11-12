@@ -29,12 +29,6 @@ public class SobreApp extends AppCompatActivity {
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
-        mAdView = findViewById(R.id.adViewBanner);
-        /*mAdView.setAdSize(AdSize.BANNER);
-        mAdView.setAdUnitId("ca-app-pub-3396081615784704/6115380505");*/
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-        //fin AdMob
     }
     public void abreFace(View view){
         Intent i = new Intent(Intent.ACTION_VIEW);
